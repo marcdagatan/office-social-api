@@ -215,6 +215,8 @@ GEM
     ruby_parser (3.18.1)
       sexp_processor (~> 4.16)
     sexp_processor (4.16.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     snaky_camel (0.0.2)
       rails (>= 4.0)
     strscan (3.0.1)
@@ -249,6 +251,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
+  shoulda-matchers
   snaky_camel
   tzinfo-data
 
