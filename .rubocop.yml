@@ -1,0 +1,107 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.0.0
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+    - vender/**/*
+
+Layout/LineLength:
+  Max: 120
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - "app/api/**/*"
+    - "config/**/*.rb"
+    - "db/**/*.rb"
+    - "lib/**/*.rake"
+    - "spec/**/*"
+Metrics/ModuleLength:
+  CountComments: false
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+Naming/PredicateName:
+  ForbiddenPrefixes:
+    - is_
+Style/Documentation:
+  Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/Lambda:
+  EnforcedStyle: literal
+Style/SymbolArray:
+  MinSize: 3
+Style/WordArray:
+  MinSize: 3
+
+# Performance specific from rubocop-performance
+Performance/AncestorsInclude:
+  Enabled: true
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+Performance/RedundantSortBlock:
+  Enabled: true
+Performance/RedundantStringChars:
+  Enabled: true
+Performance/ReverseFirst:
+  Enabled: true
+Performance/SortReverse:
+  Enabled: true
+Performance/Squeeze:
+  Enabled: true
+Performance/StringInclude:
+  Enabled: true
+Performance/Sum:
+  Enabled: true
+
+# Rails specific from rubocop-rails
+Rails:
+  Enabled: true
+Rails/BulkChangeTable:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - "app/controllers/concerns/**/*.rb"
+Rails/Output:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: true
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+Rails/SkipsModelValidations:
+  Exclude:
+    - "spec/**/*.rb"
+    - "spec/factories/*.rb"
+
+# Rspec specific
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - "spec/policies/**/*_spec.rb"
+RSpec/ImplicitSubject:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/SubjectStub:
+  Enabled: false
+RSpec/DescribeClass:
+  Exclude:
+    - "spec/db/**/*_spec.rb"
+    - "spec/requests/**/*_spec.rb"
