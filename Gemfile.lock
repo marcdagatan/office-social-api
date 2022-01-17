@@ -72,6 +72,7 @@ GEM
     ast (2.4.2)
     awesome_print (1.9.2)
     bcrypt (3.1.16)
+    blueprinter (0.25.3)
     bootsnap (1.9.4)
       msgpack (~> 1.0)
     brakeman (5.2.0)
@@ -153,6 +154,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
+    oj (3.13.11)
     orm_adapter (0.5.0)
     parallel (1.21.0)
     parser (3.1.0.0)
@@ -270,6 +272,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   awesome_print
+  blueprinter
   bootsnap
   brakeman
   debug
@@ -279,6 +282,7 @@ DEPENDENCIES
   faker
   fasterer
   figaro
+  oj
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
