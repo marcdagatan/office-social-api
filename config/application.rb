@@ -36,5 +36,7 @@ module OsApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.middleware.use SnakyCamel::Middleware
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: "_namespace_key"
   end
 end

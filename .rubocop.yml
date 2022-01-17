@@ -159,6 +159,8 @@ Rails/SkipsModelValidations:
 RSpec/EmptyExampleGroup:
   Exclude:
     - "spec/policies/**/*_spec.rb"
+RSpec/Focus:
+  Enabled: false
 RSpec/ImplicitSubject:
   Enabled: false
 RSpec/MultipleExpectations:
@@ -166,6 +168,8 @@ RSpec/MultipleExpectations:
 RSpec/ExampleLength:
   Enabled: false
 RSpec/SubjectStub:
+  Enabled: false
+RSpec/LetSetup:
   Enabled: false
 RSpec/DescribeClass:
   Exclude:

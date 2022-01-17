@@ -8,15 +8,31 @@ on:
 jobs:
   run-lint:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: os_api_test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       - name: bundle gem dependencies
         run: |
           bundle install
+      - name: configs
+        run: |
+          rm config/database.yml
+          mv config/database.yml.sample config/database.yml
+          mv config/application.yml.sample config/application.yml
+      - name: prepare database
+        run: |
+          bin/rails db:test:prepare
       - name: Run security checks
         run: |
           brakeman -q -w2
