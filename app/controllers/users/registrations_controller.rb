@@ -11,11 +11,11 @@ module Users
     end
 
     def register_success
-      render json: { message: "Signed up sucessfully." }
+      render json: { user: UserBlueprint.render_as_hash(resource), message: "User successfully created." }
     end
 
     def register_failed
-      render json: { message: "Something went wrong." }
+      render json: { errors: resource.errors, message: "Something went wrong." }, status: :unprocessable_entity
     end
   end
 end
