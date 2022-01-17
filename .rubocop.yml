@@ -169,6 +169,8 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/SubjectStub:
   Enabled: false
+RSpec/LetSetup:
+  Enabled: false
 RSpec/DescribeClass:
   Exclude:
     - "spec/db/**/*_spec.rb"
