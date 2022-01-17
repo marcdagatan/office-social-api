@@ -13,6 +13,10 @@ jobs:
         image: postgres:13
         ports:
           - 5432:5432
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: os_api_test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,6 +27,8 @@ jobs:
           bundle install
       - name: prepare database
         run: |
+          rm config/database.yml
+          mv config/database.yml.sample config/database.yml
           bin/rails db:test:prepare
       - name: Run security checks
         run: |
