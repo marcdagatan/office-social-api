@@ -25,10 +25,13 @@ jobs:
       - name: bundle gem dependencies
         run: |
           bundle install
-      - name: prepare database
+      - name: configs
         run: |
           rm config/database.yml
           mv config/database.yml.sample config/database.yml
+          mv config/application.yml.sample config/application.yml
+      - name: prepare database
+        run: |
           bin/rails db:test:prepare
       - name: Run security checks
         run: |
