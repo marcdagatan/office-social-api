@@ -8,15 +8,22 @@ on:
 jobs:
   run-lint:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        ports:
+          - 5432:5432
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       - name: bundle gem dependencies
         run: |
           bundle install
+      - name: prepare database
+        run: |
+          bin/rails db:test:prepare
       - name: Run security checks
         run: |
           brakeman -q -w2
