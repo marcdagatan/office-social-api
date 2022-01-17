@@ -1,0 +1,29 @@
+name: Linters and specs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  run-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+      - name: bundle gem dependencies
+        run: |
+          bundle install
+      - name: Run security checks
+        run: |
+          brakeman -q -w2
+      - name: Run linters
+        run: |
+          fasterer
+          rubocop --parallel
+      - name: Run rspec
+        run: |
+          bundle exec rspec
