@@ -20,5 +20,10 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#validations" do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to allow_values("marc@test.dev", "test@dev.co").for(:email) }
+    it { is_expected.not_to allow_values("marc@test, test$#23@dev.co").for(:email) }
+    it { is_expected.to validate_presence_of(:password) }
+  end
 end
