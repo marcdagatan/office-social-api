@@ -21,4 +21,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include JsonHelpers, type: :request
+  config.include AuthHelpers, type: :request
 end
