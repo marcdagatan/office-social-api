@@ -20,7 +20,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
+         :registerable,
          :jwt_authenticatable,
          :registerable,
          jwt_revocation_strategy: JwtDenylist
@@ -28,5 +29,5 @@ class User < ApplicationRecord
   validates :email, presence: true, format: Devise.email_regexp
   validates :password, presence: true
 
-  has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy, inverse_of: :author
 end

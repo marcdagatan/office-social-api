@@ -21,7 +21,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe "#associations" do
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:author).inverse_of(:posts).with_foreign_key(:user_id) }
     it { is_expected.to have_one_attached(:media) }
   end
 end

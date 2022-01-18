@@ -17,10 +17,10 @@ FactoryBot.define do
   factory :post do
     body { "MyText" }
     media { nil }
-    association :user, factory: :user
+    association :author, factory: :user
 
     after(:build) do |post|
-      post.image.attach(
+      post.media.attach(
         io: File.open(Rails.root.join("spec/fixtures/images/dummy.png")),
         filename: "dummy.png",
         content_type: "image/png"
