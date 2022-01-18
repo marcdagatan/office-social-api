@@ -130,6 +130,18 @@ GEM
     irb (1.4.1)
       reline (>= 0.3.0)
     jwt (2.3.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -203,6 +215,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (2.5.0)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
     regexp_parser (2.2.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -293,11 +309,13 @@ DEPENDENCIES
   fasterer
   figaro
   image_processing (~> 1.2)
+  kaminari
   oj
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.1)
+  ransack
   rspec-rails
   rubocop
   rubocop-performance
