@@ -27,4 +27,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: Devise.email_regexp
   validates :password, presence: true
+
+  has_many :posts, dependent: :destroy
 end
