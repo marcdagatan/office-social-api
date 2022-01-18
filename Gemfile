@@ -8,6 +8,7 @@ gem "bootsnap", require: false
 gem "devise"
 gem "devise-jwt"
 gem "figaro"
+gem "image_processing", "~> 1.2"
 gem "oj"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
@@ -19,7 +20,6 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # gem "jbuilder"
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
-# gem "image_processing", "~> 1.2"
 
 group :develoment do
   # gem "spring"
