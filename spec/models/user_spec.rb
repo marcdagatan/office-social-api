@@ -25,5 +25,9 @@ RSpec.describe User, type: :model do
     it { is_expected.to allow_values("marc@test.dev", "test@dev.co").for(:email) }
     it { is_expected.not_to allow_values("marc@test, test$#23@dev.co").for(:email) }
     it { is_expected.to validate_presence_of(:password) }
+
+    describe "associations" do
+      it { is_expected.to have_many(:posts).dependent(:destroy).inverse_of(:author) }
+    end
   end
 end

@@ -5,4 +5,8 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
+
+  namespace :api do
+    resources :posts, only: %i[index create update destroy]
+  end
 end
