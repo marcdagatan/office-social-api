@@ -6,7 +6,9 @@ describe "GET /api/posts" do
   let(:user) { create(:user) }
   let!(:posts) { create_list(:post, 40) }
 
-  it_behaves_like "a request with auth"
+  it_behaves_like "a request with auth" do
+    before { get url, as: :json }
+  end
 
   it "returns an array of posts" do
     get url, headers: auth_header(user)

@@ -4,10 +4,12 @@ class PostBlueprint < Blueprinter::Base
   fields :body, :updated_at, :created_at
 
   field :media_url do |post, _options|
-    if Rails.env.test? || Rails.env.development?
-      Rails.application.routes.url_helpers.rails_blob_path(post.media, only_path: true)
-    else
-      post.media.url
+    if post.media.attached?
+      if Rails.env.test? || Rails.env.development?
+        Rails.application.routes.url_helpers.rails_blob_path(post.media, only_path: true)
+      else
+        post.media.url
+      end
     end
   end
 
