@@ -2,9 +2,9 @@ name: Linters and specs
 
 on:
   push:
-    branches: [main]
+    branches: [main, staging, develop]
   pull_request:
-    branches: [main]
+    branches: [main, staging, develop]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
