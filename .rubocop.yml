@@ -25,7 +25,6 @@ Layout/FirstHashElementIndentation:
 
 Metrics/BlockLength:
   Exclude:
-    - "app/api/**/*"
     - "config/**/*.rb"
     - "db/**/*.rb"
     - "lib/**/*.rake"
@@ -35,6 +34,16 @@ Metrics/ModuleLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
+Metrics/AbcSize:
+  Exclude:
+    - "db/**/*.rb"
+    - "lib/**/*.rake"
+    - "spec/**/*"
+Metrics/MethodLength:
+  Exclude:
+    - "db/**/*.rb"
+    - "lib/**/*.rake"
+    - "spec/**/*"
 
 Naming/PredicateName:
   ForbiddenPrefixes:
